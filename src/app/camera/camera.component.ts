@@ -8,7 +8,7 @@ import { Html5QrcodeScanner } from 'html5-qrcode';
 })
 export class CameraComponent implements OnInit, OnDestroy {
   html5QrcodeScanner: any
-  str!: string
+  str: string = ''
   constructor() {
 
   }
@@ -17,7 +17,7 @@ export class CameraComponent implements OnInit, OnDestroy {
   }
   ngOnInit(): void {
     const config = {
-      fps: 5,
+      fps: 10,
       qrbox: 250,
       disableFlip: true
     }
@@ -26,7 +26,7 @@ export class CameraComponent implements OnInit, OnDestroy {
     this.html5QrcodeScanner.render(this.qrCodeSuccessCallback, this.qrCodeErrorCallback);
   }
 
-  qrCodeSuccessCallback(decodedText: any, decodedResult: any) {
+  qrCodeSuccessCallback(decodedText: string, decodedResult: any) {
     // Handle on success condition with the decoded text or result.
     console.log(`Scan result: ${decodedText}`, decodedResult);
     this.str = decodedText
