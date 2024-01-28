@@ -16,7 +16,7 @@ export class CameraComponent implements OnInit, OnDestroy {
   }
   ngOnInit(): void {
     const config = {
-      fps: 10,
+      fps: 5,
       qrbox: 250,
       disableFlip: true
     }
