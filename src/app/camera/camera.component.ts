@@ -8,6 +8,7 @@ import { Html5QrcodeScanner } from 'html5-qrcode';
 })
 export class CameraComponent implements OnInit, OnDestroy {
   html5QrcodeScanner: any
+  str!: string
   constructor() {
 
   }
@@ -25,8 +26,10 @@ export class CameraComponent implements OnInit, OnDestroy {
     this.html5QrcodeScanner.render(this.qrCodeSuccessCallback, this.qrCodeErrorCallback);
   }
 
-  qrCodeSuccessCallback() {
-
+  qrCodeSuccessCallback(decodedText: any, decodedResult: any) {
+    // Handle on success condition with the decoded text or result.
+    console.log(`Scan result: ${decodedText}`, decodedResult);
+    this.str = decodedText
   }
 
   qrCodeErrorCallback() {
