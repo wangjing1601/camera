@@ -9,6 +9,7 @@ import { Html5QrcodeScanner } from 'html5-qrcode';
 export class CameraComponent implements OnInit, OnDestroy {
   html5QrcodeScanner: any
   str: string = ''
+  title: string = '标题'
   constructor() {
 
   }
@@ -26,7 +27,8 @@ export class CameraComponent implements OnInit, OnDestroy {
     this.html5QrcodeScanner.render(this.qrCodeSuccessCallback, this.qrCodeErrorCallback);
   }
 
-  qrCodeSuccessCallback() {
+  qrCodeSuccessCallback(str: string) {
+    this.str = str
   }
 
   qrCodeErrorCallback() {
