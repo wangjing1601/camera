@@ -17,7 +17,7 @@ export class CameraComponent implements OnInit, OnDestroy {
   }
   ngOnInit(): void {
     const config = {
-      fps: 10,
+      fps: 15,
       qrbox: 250,
       disableFlip: true
     }
@@ -26,10 +26,7 @@ export class CameraComponent implements OnInit, OnDestroy {
     this.html5QrcodeScanner.render(this.qrCodeSuccessCallback, this.qrCodeErrorCallback);
   }
 
-  qrCodeSuccessCallback(decodedText: string, decodedResult: any) {
-    // Handle on success condition with the decoded text or result.
-    console.log(`Scan result: ${decodedText}`, decodedResult);
-    this.str = decodedText
+  qrCodeSuccessCallback() {
   }
 
   qrCodeErrorCallback() {
